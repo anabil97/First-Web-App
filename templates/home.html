@@ -1,26 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
 <h1>Hello from My App</h1>
-<form action="">
-      
+
+<form action="/HelloWorld">
+      <h2>Please enter link</h2>
+      <input type="link" name="q" required minlength="4" placeholder="Please enter link…"
+            aria-label="Search through site content" size="50" />
+      <button type="button" >Get Data</button> 
 </form>
-<h2>Please enter link</h2>
-<input type="link" name="q" required minlength="4" placeholder="Please enter link…"
-      aria-label="Search through site content" size="50" />
-<button type="button" >Get Data</button>
-
-<br>
-<br>
-
-<button onclick="myFunction()">Show Data</button>
-<p id="demo"></p>
-<script>
-      function myFunction() {
-            document.getElementById("demo").innerHTML = "Hello World";
-      }
-</script>
-
-
 
 <br>
 <br>
