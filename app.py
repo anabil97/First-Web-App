@@ -18,58 +18,58 @@ def homepage():
 def getdata():
     return render_template("getdata.html", pagetitle="DataPage")
 
-def app(url):
+# def app(url):
 
-    engine = create_engine("sqlite:///web.db")
+#     engine = create_engine("sqlite:///web.db")
 
-    meta_data = MetaData()
+#     meta_data = MetaData()
 
-    products = Table(
-        "products", meta_data,
-        Column("id", Integer, primary_key=True),
-        Column("title", String),
-        Column("category", String),
-        Column("rating", String),
-        Column("price", String)
-    )
-    meta_data.create_all(engine)
+#     products = Table(
+#         "products", meta_data,
+#         Column("id", Integer, primary_key=True),
+#         Column("title", String),
+#         Column("category", String),
+#         Column("rating", String),
+#         Column("price", String)
+#     )
+#     meta_data.create_all(engine)
 
-    response = requests.get(url)
-    file = response.json()
+#     response = requests.get(url)
+#     file = response.json()
 
-    file1 = file["products"]
+#     file1 = file["products"]
 
-    for i in file1:
-        x1 = i["title"]
-        x2 = i["category"]
-        x3 = i["rating"]
-        x4 = i["price"]
-        ins = products.insert().values(title=x1, category=x2, rating=x3, price=x4)
-        conn = engine.connect()
-        result = conn.execute(ins)
-    return 
+#     for i in file1:
+#         x1 = i["title"]
+#         x2 = i["category"]
+#         x3 = i["rating"]
+#         x4 = i["price"]
+#         ins = products.insert().values(title=x1, category=x2, rating=x3, price=x4)
+#         conn = engine.connect()
+#         result = conn.execute(ins)
+#     return 
 
-def getdata(x, y):
-    engine = create_engine("sqlite:///web.db")
-    meta_data = MetaData()
+# def getdata(x, y):
+#     engine = create_engine("sqlite:///web.db")
+#     meta_data = MetaData()
 
-    products = Table(
-        "products", meta_data,
-        Column("id", Integer, primary_key=True),
-        Column("title", String),
-        Column("category", String),
-        Column("rating", String),
-        Column("price", String)
-    )
+#     products = Table(
+#         "products", meta_data,
+#         Column("id", Integer, primary_key=True),
+#         Column("title", String),
+#         Column("category", String),
+#         Column("rating", String),
+#         Column("price", String)
+#     )
 
-    prod = products.select()
-    conn = engine.connect()
-    result = conn.execute(prod)
-    data = []
-    for i in result:
-        if int(i[4]) >= x and int(i[4]) <= y:
-            data.append(i)
-    return data
+#     prod = products.select()
+#     conn = engine.connect()
+#     result = conn.execute(prod)
+#     data = []
+#     for i in result:
+#         if int(i[4]) >= x and int(i[4]) <= y:
+#             data.append(i)
+#     return data
 
 
 
