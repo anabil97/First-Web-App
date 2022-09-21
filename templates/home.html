@@ -2,17 +2,18 @@
 {% block body %}
 <h1>Hello from My App</h1>
 
-<form action="/HelloWorld">
-      <h2>Please enter link</h2>
-      <input type="link" name="q" required minlength="4" placeholder="Please enter link…"
-            aria-label="Search through site content" size="50" />
-      <button type="button" >Get Data</button> 
+
+<form>
+      <label for="url_title" >Enter URL</label>
+      <input type="text" name="url_title" size="50">
+      <input type="submit" value="Get Data">
 </form>
 
 <br>
 <br>
 <br>
-
+<p>{{error}}</p>
+<br>
 <a href="/getdata"><button>Search Products</button></a>
 
 {% endblock %}

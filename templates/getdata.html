@@ -2,32 +2,24 @@
 {% block body %}
 <h1>Product Price</h1>
 
-<input
-      type="link"
-      name="q"
-      required  
-      minlength="4"
-      placeholder="From"
-      aria-label="Search through site content" 
-      size="50"/>
+<form >
+      <label for="price_from">Price From</label>
+      <input type="text" name="price_from">
+      <label for="to">To</label>
+      <input type="text" name="to">
+      <input type="submit" value="Submit Form">
 
-
-<P></P>
-
-<input
-      type="link"
-      name="q"
-      required  
-      minlength="4"
-      placeholder="To"
-      aria-label="Search through site content" 
-      size="50"/>
-
-<p></p>
-
-<button type="button">Get Products</button>
+</form>
+<br>
+<a href="/getdata"><button>New Search</button></a>
+<ol>
+      {%for i in data %}
+      <li>{{i}}</li>
+      {%endfor%}
+</ol>
+<p>{{error}}</p>
 
 <br>
-<br>
-<a href="/"><button>New Data</button></a>
+<a href="/"><button>HomePage</button></a>
+
 {% endblock %}
